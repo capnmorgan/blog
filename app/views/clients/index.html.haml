@@ -1,0 +1,54 @@
+.container-fluid
+  .row{style: "padding-top:20px;"}
+  -#%table#datatable.display.compact{"data-source" => clients_url(format: "json")}
+
+  - bc = "background: #595959; color: white; border-right: 2px solid white;"
+  .row
+    - header_style  = "padding: 4px 17px 4px 4px; font-size:15px; font-weight: bold; margin-bottom: 2px;" + bc
+    - main_menu     = "height: 45px;" + header_style
+    - sub_menu      = "height: 43px;" + header_style
+    - sub_menu_text = "padding-top: 6px;"
+    .col-sm-2
+      .row{style: "height: 41px;"}
+      .row{style: main_menu}
+        %div{style: sub_menu_text} Deals
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} All Deals
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Attempted
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Presented
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Appointment
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Negotiating
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Sold
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Not Contracted
+      .row{style: sub_menu}
+        %div{style: sub_menu_text} Not Involved
+    .col-sm-10{style: "padding-left: 2px;"}
+      %table#datatable.display.compact{"data-source" => clients_url(format: "json")}
+        %thead
+          %tr{style: "height: 45px;"}
+            %th{style: bc} Name
+            %th{style: bc} Stage
+            %th{style: bc} Rank
+            %th{style: bc} Location
+            %th{style: bc} Salary
+            %th{style: bc} Money
+        %tbody
+          = render partial: "clients/client", collection: @clients
+
+
+
+:javascript
+  $(document).ready(function() {
+    $('#datatable').DataTable({
+       "lengthChange": false,
+       "displayLength": 8
+    });
+  });
+
+

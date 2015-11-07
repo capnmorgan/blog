@@ -1,0 +1,12 @@
+%html
+  %head
+    %title DealMaster
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header#banner{:role => "banner"}
+      = render 'shared/header'
+    %main.main-body{:role => "main"}
+      .row{style: "padding-top: 50px;"} 
+      = yield
