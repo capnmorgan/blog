@@ -40,6 +40,7 @@ gem 'jquery-datatables-rails'
 
 group :development, :test do
   group :development do
+    gem 'spring'
     gem 'html2haml'
   end
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
