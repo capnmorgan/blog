@@ -50,7 +50,7 @@
        "displayLength": 8
     });
  
-    $('#datatable').on('click', 'tbody tr', function(e){  
+    $('#datatable').on('click', 'tbody tr td:not(:first-child)', function(e){  
       if (e.ctrlKey) {
         window.open($(this).parent().attr('href'), '_blank');
       } else { 
