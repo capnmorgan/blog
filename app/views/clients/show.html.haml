@@ -42,9 +42,12 @@
               $
               = @client.money
       .row{style: "padding-top:25px;"}
-        .col-sm-12
+        .col-sm-12{style: "padding-right:0px;"}
           .bs-example{"data-example-id" => "textarea-form-control"}
             %form{:lpformnum => "3"}
             %textarea.form-control{:placeholder => "Notes", :rows => "4"}
+      .row
+        .col-sm-12{style: "padding-right:0px;"}
+          %button.pull-right.btn.bnt-default{style: "margin-top:5px; background-color: #001744; color:white;"} Save
     .col-sm-6
       = image_tag("newlistings.jpg", style: "width: 100%; opacity: 1; border-radius: 2px; box-shadow: 1px 1px 1px lightgrey;")
