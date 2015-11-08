@@ -1,0 +1,50 @@
+.container-fluid
+  .row{style: "padding-top:50px;"}
+  .row
+    .col-sm-6
+      .row
+        .col-sm-6
+          = image_tag("client_default_picture.png", style: "max-height: 100%; height: 232px; opacity: 1; border-radius: 37px;")
+        .col-sm-6
+          - label_style = "font-size:20px;"
+          - value_style = "border: 1px solid lightgrey; box-shadow: 1px 1px 1px lightgrey; border-radius: 4px; font-size: 15px; padding-top:5px; padding-bottom:5px;"
+          - row_style = "padding-top: 5px;"
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Name
+            .col-sm-8{style: value_style}
+              = @client.full_name
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Stage
+            .col-sm-8{style: value_style}
+              = @client.stage
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Rank
+            .col-sm-8{style: value_style}
+              = @client.dealmaster_rating
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Location
+            .col-sm-8{style: value_style}
+              = @client.location
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Salary
+            .col-sm-8{style: value_style}
+              $
+              = @client.salary
+          .row{style: row_style}
+            .col-sm-4{style: label_style}
+              %strong Money
+            .col-sm-8{style: value_style}
+              $
+              = @client.money
+      .row{style: "padding-top:25px;"}
+        .col-sm-12
+          .bs-example{"data-example-id" => "textarea-form-control"}
+            %form{:lpformnum => "3"}
+            %textarea.form-control{:placeholder => "Notes", :rows => "4"}
+    .col-sm-6
+      = image_tag("newlistings.jpg", style: "width: 100%; opacity: 1; border-radius: 2px; box-shadow: 1px 1px 1px lightgrey;")
