@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
-gem 'jquery-datatables-rails'
+gem 'jquery-datatables-rails', github: "rweng/jquery-datatables-rails", branch: "master"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
