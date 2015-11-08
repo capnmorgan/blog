@@ -45,17 +45,18 @@
 
 :javascript
   $(document).ready(function() {
+
+    $('#datatable').DataTable({
+       "lengthChange": false,
+       "displayLength": 8
+    });
+
     $('#datatable').on('click', 'tbody tr td', function(e){  
       if (e.ctrlKey) {
         window.open($(this).parent().attr('href'), '_blank');
       } else { 
         window.location.href = $(this).parent().attr('href');
       }
-    });
-
-    $('#datatable').DataTable({
-       "lengthChange": false,
-       "displayLength": 8
     });
 
   });
