@@ -1,3 +1,36 @@
-%h1 Hello!
 -#= link_to 'Articles', controller: 'articles'
-= link_to 'Clients', controller: 'clients'
+.container-fluid
+  .row{style: "padding-top:50px;"}
+  .row
+    %p.text-center
+      %strong{style:"font-size: 40px; font-weight:bolder; vertical-align:middle;"} Number of Sales Last 30 Days
+  .row
+    .col-sm-1
+    .col-sm-10
+      #chart_div{style: "height:400px; box-shadow: 0px 0px 6px grey;"}
+    .col-sm-1
+%script{:src => "https://www.google.com/jsapi?autoload={\n            'modules':[{\n              'name':'visualization',\n              'version':'1',\n              'packages':['corechart']\n            }]\n          }", :type => "text/javascript"}
+:javascript
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Sales', 'Last 30 Days'],
+  [8, 37], [4, 19.5], [11, 52], [4, 22], [3, 16.5], [6.5, 32.8], [14, 72]]);
+  
+  var options = {
+  hAxis: {title: 'Last 30 Days'},
+  vAxis: {title: 'Sales'},
+  legend: 'none',
+    trendlines: {
+      0: {
+        color: 'purple',
+        lineWidth: 10,
+        opacity: 0.2,
+        type: 'exponential'
+      }
+    }
+    };
+  
+  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+  chart.draw(data, options);
+  }
