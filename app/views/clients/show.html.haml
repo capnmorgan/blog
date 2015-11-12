@@ -25,17 +25,12 @@
               = @client.stage
           .row{style: row_style}
             .col-sm-5{style: label_style}
-              %strong Rank
+              %strong CPS
             .col-sm-7{style: value_style}
               = @client.dealmaster_rating
           .row{style: row_style}
             .col-sm-5{style: label_style}
-              %strong Location
-            .col-sm-7{style: value_style}
-              = @client.location
-          .row{style: row_style}
-            .col-sm-5{style: label_style}
-              %strong Salary
+              %strong Rank
             .col-sm-7{style: value_style}
               = @client.salary
           .row{style: row_style}
@@ -43,6 +38,11 @@
               %strong Money
             .col-sm-7{style: value_style}
               = @client.money
+          .row{style: row_style}
+            .col-sm-5{style: label_style}
+              %strong Location
+            .col-sm-7{style: value_style}
+              = @client.location
       .row{style: "padding-top:40px;"}
       .row
         .col-sm-12
