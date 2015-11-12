@@ -3,8 +3,8 @@
   %td{style: column_style}
     = image_tag("client_default_picture.png", style: "max-height: 100%; height: 36px; opacity: 1;")
     = client.full_name
+  %td{style: column_style + "font-weight:bold; color: " + if client.stage == "Sold" then "green; "elsif client.stage == "Presenting" then "blue;" elsif client.stage == "Negotiating" then "orange;" end}= client.stage
   %td{style: column_style}= client.dealmaster_rating
-  %td{style: column_style}= client.stage
   %td{style: column_style}= client.salary
   %td{style: column_style}= client.money
   %td{style: column_style}= client.dealmaster_rating
