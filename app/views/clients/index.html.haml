@@ -7,27 +7,32 @@
     - header_style  = "padding: 4px 17px 4px 4px; font-size:15px; font-weight: bold; margin-bottom: 2px;" + bc
     - main_menu     = "height: 45px;" + header_style
     - sub_menu      = "height: 43px;" + header_style
-    - sub_menu_text = "padding-top: 6px;"
+    - sub_menu_text = "padding-top: 6px;text-decoration:none;"
+    :css
+      .hoverness:hover {
+        cursor: pointer;
+        color: #5958BE;
+      }
     .col-sm-2
       .row{style: "height: 41px;"}
       .row{style: main_menu}
         %div{style: sub_menu_text} Deals
       .row{style: sub_menu}
-        %div{style: sub_menu_text} All Deals
+        %div.hoverness#alldeals{style: sub_menu_text} All Deals
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Attempted
+        %div.hoverness#attempted{style: sub_menu_text} Attempted
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Presented
+        %div.hoverness#presenting{style: sub_menu_text} Presenting
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Appointment
+        %div.hoverness#appointment{style: sub_menu_text} Appointment
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Negotiating
+        %div.hoverness#negotiating{style: sub_menu_text} Negotiating
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Sold
+        %div.hoverness#sold{style: sub_menu_text} Sold
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Not Contracted
+        %div.hoverness#notcontracted{style: sub_menu_text} Not Contracted
       .row{style: sub_menu}
-        %div{style: sub_menu_text} Not Involved
+        %div.hoverness#notinvolved{style: sub_menu_text} Not Involved
     .col-sm-10{style: "padding-left: 0px;"}
       %table#datatable.display.compact{"data-source" => clients_url(format: "json"), style: "cursor: pointer; cursor: hand;"}
         %thead
@@ -60,6 +65,30 @@
       }
     });
 
+    $("#alldeals").click(function () {
+      window.location.href = "/clients";
+    });
+    $("#attempted").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#presenting").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#appointment").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#negotiating").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#sold").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#notcontracted").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
+    $("#notinvolved").click(function () {
+      window.location.href = "/clients?filter="+$(this).attr("id");
+    });
   });
 
 
