@@ -12,7 +12,7 @@
       - row_style = "padding-top: 5px;"
       .row
         .col-sm-12
-          = image_tag("client_default_picture.png", style: "height: 40px; opacity: 1; border-radius: 37px; box-shadow: 1px 1px 1px lightgrey; vertical-align:middle;")
+          = image_tag("#{@client.id}.jpg", style: "height: 40px; width: 40px; opacity: 1; border-radius: 37px; box-shadow: 1px 1px 1px lightgrey; vertical-align:middle;")
           %strong{style:"font-size: 40px; font-weight:bolder; vertical-align:middle;padding-left:10px;"}= @client.full_name
       .row{style: "padding-top:20px;"}
         .col-sm-8
