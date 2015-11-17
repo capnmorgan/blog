@@ -82,6 +82,30 @@
           %button.pull-right.btn.bnt-default{style: "margin-top:5px; background-color: #001744; color:white;"} Save
     .col-sm-5
       .row
+        %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
+        :javascript
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+              ['1k - 2k', 11],
+              ['2k - 3k', 7],
+              ['4k - 5k', 2],
+              ['6k - 7k', 2],
+              ['7k - 8k', 2]
+            ]);
+        
+            var options = {
+              title: 'Number of Listings: New York City',
+              is3D: true,
+            };
+        
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+        #piechart_3d{:style => "width: 600px; height: 400px;"}
+      .row
         %script{:src => "https://www.google.com/jsapi?autoload={\n            'modules':[{\n              'name':'visualization',\n              'version':'1',\n              'packages':['corechart']\n            }]\n          }", :type => "text/javascript"}
         :javascript
           google.setOnLoadCallback(drawChart);
@@ -106,28 +130,4 @@
             chart.draw(data, options);
           }
         #curve_chart{:style => "width: 600px; height: 400px"}
-      .row
-        %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
-        :javascript
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ['Task', 'Hours per Day'],
-              ['1k - 2k', 11],
-              ['2k - 3k', 7],
-              ['4k - 5k', 2],
-              ['6k - 7k', 2],
-              ['7k - 8k', 2]
-            ]);
-        
-            var options = {
-              title: 'Number of Listings: New York City',
-              is3D: true,
-            };
-        
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            chart.draw(data, options);
-          }
-        #piechart_3d{:style => "width: 600px; height: 400px;"}
     .col-sm-1
