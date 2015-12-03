@@ -11,26 +11,33 @@
     .col-sm-1
 %script{:src => "https://www.google.com/jsapi?autoload={\n            'modules':[{\n              'name':'visualization',\n              'version':'1',\n              'packages':['corechart']\n            }]\n          }", :type => "text/javascript"}
 :javascript
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Sales', 'Last 30 Days'],
-  [8, 37], [4, 19.5], [11, 52], [4, 22], [3, 16.5], [6.5, 32.8], [14, 72]]);
-  
-  var options = {
-  hAxis: {title: 'Last 30 Days'},
-  vAxis: {title: 'Sales'},
-  legend: 'none',
-    trendlines: {
-      0: {
-        color: 'purple',
-        lineWidth: 10,
-        opacity: 0.2,
-        type: 'exponential'
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales'],
+          ['11/1',   1],
+          ['11/5',   2],
+          ['11/10',  1],
+          ['11/15',  3],
+          ['11/20',  2],
+          ['11/25',  1],
+          ['11/30',  0]
+        ]);
+
+        var options = {
+          curveType: 'function',
+          vAxis: {
+            format: '#',
+            viewWindow:{
+              min:0
+            }
+          },
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
       }
-    }
-    };
-  
-  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-  chart.draw(data, options);
-  }

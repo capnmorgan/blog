@@ -15,34 +15,44 @@
           = image_tag("#{@client.id}.jpg", style: "height: 40px; width: 40px; opacity: 1; border-radius: 37px; box-shadow: 1px 1px 1px lightgrey; vertical-align:middle;")
           %strong{style:"font-size: 40px; font-weight:bolder; vertical-align:middle;padding-left:10px;"}= @client.full_name
       .row{style: "padding-top:20px;"}
-        .col-sm-8
+        .col-sm-12
           .row{style: row_style}
-            .col-sm-5{style: label_style}
+            .col-sm-7{style: label_style}
           .row{style: row_style}
             .col-sm-5{style: label_style}
               %strong Stage
-            .col-sm-7{style: value_style}
+            .col-sm-2{style: value_style}
               = @client.stage
+
           .row{style: row_style}
             .col-sm-5{style: label_style}
               %strong CPS
-            .col-sm-7{style: value_style}
+            .col-sm-2{style: value_style}
               = @client.dealmaster_rating
+
           .row{style: row_style}
             .col-sm-5{style: label_style}
-              %strong Rank
-            .col-sm-7{style: value_style}
+              %strong Lease Term
+            .col-sm-2{style: value_style}
+              = @client.calendar
+
+          .row{style: row_style}
+            .col-sm-5{style: label_style}
+              %strong Income
+            .col-sm-2{style: value_style}
               = @client.salary
+
           .row{style: row_style}
             .col-sm-5{style: label_style}
-              %strong Money
-            .col-sm-7{style: value_style}
-              = @client.money
+              %strong Family Status
+            .col-sm-2{style: value_style}
+              = @client.building
+
           .row{style: row_style}
             .col-sm-5{style: label_style}
-              %strong Location
-            .col-sm-7{style: value_style}
-              = @client.location
+              %strong Savings
+            .col-sm-2{style: value_style}
+              = @client.savings
       .row{style: "padding-top:40px;"}
       .row
         .col-sm-12
@@ -61,16 +71,16 @@
         .col-sm-8
           .btn-group{"aria-label" => "...", :role => "group"}
             %button.btn.btn-default{:type => "button"} Buy
-            %button.btn.btn-default{:type => "button"} Rent
+            %button.btn.btn-default.active{:type => "button"} Rent
       .row{style: "padding-top:10px;"}
         .col-sm-4
-          %strong{style:"font-size: 20px; font-weight:bolder; vertical-align:middle;"} Close %
+          %strong{style:"font-size: 20px; font-weight:bolder; vertical-align:middle;"} Client Traction %
         .col-sm-8
           .btn-group{"aria-label" => "...", :role => "group"}
             %button.btn.btn-default{:type => "button"} 0%
             %button.btn.btn-default{:type => "button"} 25%
             %button.btn.btn-default{:type => "button"} 50%
-            %button.btn.btn-default{:type => "button"} 75%
+            %button.btn.btn-default.active{:type => "button"} 75%
             %button.btn.btn-default{:type => "button"} 100%
       .row{style: "padding-top:25px;"}
         .col-sm-8{style: "padding-right:0px;"}
@@ -97,7 +107,7 @@
             ]);
         
             var options = {
-              title: 'Number of Listings: New York City',
+              title: 'Listings in Selected Location',
               is3D: true,
             };
         
@@ -120,7 +130,7 @@
             ]);
         
             var options = {
-              title: 'Number Of Listings in Price',
+              title: 'Average Price of Listings in Location',
               curveType: 'function',
               legend: { position: 'bottom' }
             };
